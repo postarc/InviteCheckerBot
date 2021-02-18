@@ -45,7 +45,6 @@ def get_text_messages(message):
    elif message_arr[0] == "/adduser":
       if len(message_arr) == 6:
          if message_arr[1].isdigit() and message_arr[5].isdigit():
-            #and message_arr[6].isdigit()
             cur.execute("SELECT * FROM database WHERE userid=?", (message_arr[1],))
             rows = cur.fetchall()
             if not rows:
