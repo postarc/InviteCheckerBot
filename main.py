@@ -5,7 +5,6 @@ import telebot
 import sqlite3 as sql
 import os.path
 
-#basefile='userdata'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(BASE_DIR, "userdata.db")
 con = sql.connect(db_path, check_same_thread=False)
@@ -14,11 +13,6 @@ bot = telebot.TeleBot('1647077261:AAHQhT-gplqWr7SDDod_CwjPyKhSQPK795Q')
 with con:
    cur = con.cursor()
    cur.execute("CREATE TABLE IF NOT EXISTS database (userid INTEGER, firstname STRING, lastname STRING, username STRING, invite INTEGER)")
-   #userid=int(input("UserId: "))
-   #name=input("Name: ")
-   #surname=input("Surname: ")
-   #invite=int(input("Invite: "))
-   #cur.execute(f"INSERT INTO book(userid,name,surname,invite) VALUES ('{userid}', '{name}', '{surname}', '{invite}')")
 
 @bot.message_handler(content_types=['text'])
 
